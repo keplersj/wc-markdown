@@ -1,4 +1,4 @@
-# wc-markdown
+# webcomponent-markdown
 
 [Web Component](https://www.webcomponents.org/) for [Markdown](https://commonmark.org/help/) using [Remark](https://unifiedjs.com/explore/project/remarkjs/remark/).
 
@@ -21,21 +21,24 @@ This package is ESM only.
 It can be installed using npm and a bundler:
 
 ```sh
-npm install wc-markdown
+npm install webcomponent-markdown
 ```
 
 Or added directly to a page using a npm CDN ([skypack](https://www.skypack.dev/), etc.):
 
 ```html
-<script type="module" src="https://cdn.skypack.dev/wc-markdown"></script>
+<script
+  type="module"
+  src="https://cdn.skypack.dev/webcomponent-markdown"
+></script>
 ```
 
 ## Usage
 
-After installation simply add the `<wc-markdown>` element to your web page and specify the URL of your Markdown document:
+After installation simply add the `<remark-markdown>` element to your web page and specify the URL of your Markdown document:
 
 ```html
-<wc-markdown src="./index.md"></wc-markdown>
+<remark-markdown src="./index.md"></remark-markdown>
 ```
 
 Due to the nature of Web Components this can be done using any framework (React, Vue, etc.)
