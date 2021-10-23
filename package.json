@@ -1,0 +1,81 @@
+{
+  "name": "wc-markdown",
+  "version": "0.0.1",
+  "description": "Web Component for rendering Markdown, using Remark",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    "import": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "tsc",
+    "prepack": "npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keplersj/wc-markdown.git"
+  },
+  "keywords": [
+    "markdown",
+    "custom-elements",
+    "remark",
+    "unified",
+    "web-components"
+  ],
+  "author": "Kepler Sticka-Jones <kepler@stickajones.org>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keplersj/wc-markdown/issues"
+  },
+  "homepage": "https://github.com/keplersj/wc-markdown#readme",
+  "jest": {
+    "preset": "ts-jest/presets/default-esm",
+    "globals": {
+      "ts-jest": {
+        "useESM": true
+      }
+    },
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "testEnvironment": "jsdom",
+    "collectCoverage": true,
+    "snapshotSerializers": [
+      "jest-serializer-html"
+    ],
+    "setupFiles": [
+      "./setupJest.cjs"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@storybook/addon-actions": "6.4.0-beta.10",
+    "@storybook/addon-essentials": "6.4.0-beta.10",
+    "@storybook/addon-links": "6.4.0-beta.10",
+    "@storybook/html": "6.4.0-beta.10",
+    "@testing-library/dom": "^8.10.1",
+    "@types/jest": "^27.0.2",
+    "@types/jsdom": "^16.2.13",
+    "babel-loader": "^8.2.3",
+    "jest": "^27.3.1",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-serializer-html": "^7.1.0",
+    "node-fetch": "^3.0.0",
+    "storybook-builder-vite": "^0.1.2",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "vite": "^2.6.10"
+  },
+  "dependencies": {
+    "atomico": "^1.33.0",
+    "rehype-stringify": "^9.0.2",
+    "remark-parse": "^10.0.0",
+    "remark-rehype": "^10.0.0",
+    "unified": "^10.1.0"
+  }
+}

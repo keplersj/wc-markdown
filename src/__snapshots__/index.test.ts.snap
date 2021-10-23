@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Remark-Markdown Web Component renders basic component 1`] = `
+<remark-markdown shadow="true">
+  <div>
+  </div>
+</remark-markdown>
+`;
+
+exports[`Remark-Markdown Web Component renders component with \`src\` parameter 1`] = `
+<remark-markdown src="https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md"
+                 shadow="true"
+>
+  <div>
+    <h1>
+      Test
+    </h1>
+  </div>
+</remark-markdown>
+`;
