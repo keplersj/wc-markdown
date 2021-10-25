@@ -24,7 +24,9 @@ describe("Remark-Markdown Web Component", () => {
       ></remark-markdown>`
     );
 
-    await findByText(component.parentElement!, "Test");
+    await findByText(component.parentElement!, "Test").catch((e) =>
+      console.error(e)
+    );
 
     expect(component.outerHTML).toMatchSnapshot();
   });

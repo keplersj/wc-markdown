@@ -1,21 +1,16 @@
-import { c, useEffect, useState, html, useLayoutEffect } from "atomico";
+import { c, h, useEffect, useState, html } from "atomico";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
+import remarkVdom from "remark-vdom";
 
 interface Attributes extends HTMLElement {
   src?: string;
 }
 
-const remarkProcessor = unified()
-  .use(remarkParse)
-  .use(remarkRehype)
-  .use(rehypeStringify);
+const remarkProcessor = unified().use(remarkParse).use(remarkVdom, { h: h });
 
 export function RemarkMarkdownWC({ src }: Attributes) {
   const [content, setContent] = useState<string>();
-  const [parsed, setParsed] = useState<string>();
 
   useEffect(() => {
     async function run() {
@@ -28,16 +23,9 @@ export function RemarkMarkdownWC({ src }: Attributes) {
     run();
   }, [src]);
 
-  useLayoutEffect(() => {
-    async function run() {
-      const processed = await remarkProcessor.process(content);
-      setParsed(String(processed));
-    }
-
-    run();
-  }, [content]);
-
-  return html`<host shadow><div innerHTML=${parsed}></div></host>`;
+  return html`<host shadow
+    >${remarkProcessor.processSync(content).result}</host
+  >`;
 }
 
 RemarkMarkdownWC.props = {
