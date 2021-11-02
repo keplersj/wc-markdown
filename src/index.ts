@@ -23,9 +23,9 @@ export function RemarkMarkdownWC({ src }: Attributes) {
     run();
   }, [src]);
 
-  return html`<host shadow
-    >${remarkProcessor.processSync(content).result}</host
-  >`;
+  return html`
+    <host shadowDom> ${remarkProcessor.processSync(content).result} </host>
+  `;
 }
 
 RemarkMarkdownWC.props = {
