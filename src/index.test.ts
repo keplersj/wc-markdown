@@ -28,9 +28,45 @@ describe("Remark-Markdown Web Component", () => {
       ></remark-markdown>`
     );
 
-    await findByText(component.parentElement!, "Test").catch((e) =>
-      console.error(e)
+    await findByText(component.parentElement!, "Test").catch((e) => {
+      // console.error(e)
+    });
+
+    expect(component).toMatchSnapshot();
+    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+  });
+
+  it("renders component with inlined Markdown", async () => {
+    const component = fixture(
+      html`<remark-markdown>
+        <script slot="content" type="text/markdown">
+          ${`
+          # Hello world!
+
+          This is a test of inlined markdown!
+          `}
+        </script>
+      </remark-markdown>`
     );
+
+    await findByText(component.parentElement!, "Hello world!").catch((e) => {
+      // console.error(e)
+    });
+
+    expect(component).toMatchSnapshot();
+    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+  });
+
+  it("renders empty document if inline script does not contain content", async () => {
+    const component = fixture(
+      html`<remark-markdown>
+        <script slot="content" type="text/markdown"></script>
+      </remark-markdown>`
+    );
+
+    await findByText(component.parentElement!, "Hello world!").catch((e) => {
+      // console.error(e)
+    });
 
     expect(component).toMatchSnapshot();
     expect(component.shadowRoot?.innerHTML).toMatchSnapshot();

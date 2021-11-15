@@ -40,7 +40,8 @@
       }
     },
     "moduleNameMapper": {
-      "^(\\.{1,2}/.*)\\.js$": "$1"
+      "^(\\.{1,2}/.*)\\.js$": "$1",
+      "@atomico/hooks/use-slot": "<rootDir>/node_modules/@atomico/hooks/src/use-slot/use-slot.js"
     },
     "testEnvironment": "jsdom",
     "collectCoverage": true,
@@ -56,29 +57,31 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.16.0",
     "@storybook/addon-actions": "6.4.0-beta.10",
     "@storybook/addon-essentials": "6.4.0-beta.10",
     "@storybook/addon-links": "6.4.0-beta.10",
     "@storybook/html": "6.4.0-beta.10",
-    "@testing-library/dom": "^8.10.1",
+    "@testing-library/dom": "^8.11.1",
     "@types/jest": "^27.0.2",
     "@types/jsdom": "^16.2.13",
     "babel-loader": "^8.2.3",
     "jest": "^27.3.1",
     "jest-fetch-mock": "^3.0.3",
     "jest-serializer-html": "^7.1.0",
-    "node-fetch": "^3.0.0",
-    "storybook-builder-vite": "^0.1.2",
+    "node-fetch": "^3.1.0",
+    "storybook-builder-vite": "^0.1.6",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4",
-    "vite": "^2.6.10"
+    "vite": "^2.6.14"
   },
   "dependencies": {
-    "atomico": "^1.33.0",
+    "@atomico/hooks": "^3.20.2",
+    "atomico": "^1.34.0",
     "remark-parse": "^10.0.0",
     "remark-vdom": "^11.0.0",
+    "strip-indent": "^4.0.0",
     "unified": "^10.1.0"
   }
 }
