@@ -49,6 +49,10 @@
     ],
     "setupFiles": [
       "./setupJest.cjs"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
     ]
   },
   "devDependencies": {
