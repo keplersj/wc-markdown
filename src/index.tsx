@@ -3,7 +3,6 @@ import {
   h,
   useEffect,
   useState,
-  html,
   useRef,
   VDom,
   VDomType,
@@ -69,14 +68,14 @@ export function RemarkMarkdownWC({
     run();
   }, [src, inlineContentChildNodes]);
 
-  return html`
+  return (
     <host shadowDom>
-      <slot name="content" ref=${inlineContentRef}>
+      <slot name="content" ref={inlineContentRef}>
         <script type="text/markdown"></script>
       </slot>
-      ${remarkProcessor.processSync(content).result}
+      {remarkProcessor.processSync(content).result}
     </host>
-  `;
+  );
 }
 
 RemarkMarkdownWC.props = {

@@ -4,7 +4,6 @@ import { html } from "atomico";
 import { fixture } from "atomico/test-dom";
 import { findByText } from "@testing-library/dom";
 import "./index.js";
-import remarkRehype from "remark-rehype";
 
 jest.setTimeout(10000);
 
