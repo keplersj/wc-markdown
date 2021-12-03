@@ -65,6 +65,39 @@ The element will render out an embedded copy of your document when provided in a
 
 If the element is provided both a source URL and an embedded document, it will only render the embedded document and not fetch and render the specified URL.
 
+### Plugins
+
+The renderer can be extended using both [Remark Plugins](https://github.com/remarkjs/remark/blob/main/doc/plugins.md) and [Rehype Plugins](https://github.com/rehypejs/rehype/blob/main/doc/plugins.md) by providing the component with an Array of your plugins with the `remarkPlugins` and `rehypePlugins` attributes.
+
+An example use case from a React-like environment:
+
+```jsx
+import remarkFrontmatter from "remark-frontmatter";
+import emoji from "remark-emoji";
+import rehypePicture from "rehype-picture";
+import slug from "rehype-slug";
+
+const Markdown = ({ content }) => (
+  <remark-markdown
+    remarkPlugins={[remarkFrontmatter, emoji]}
+    rehypePlugins={[
+      [
+        rehypePicture,
+        {
+          jpg: { webp: "image/webp" },
+          png: { svg: "image/svg+xml" },
+        },
+      ],
+      slug,
+    ]}
+  >
+    <script slot="content" type="text/markdown">
+      {content}
+    </script>
+  </remark-markdown>
+);
+```
+
 ## License
 
 Copyright 2021 [Kepler Sticka-Jones](https://keplersj.com). Licensed ISC.

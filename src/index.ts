@@ -7,6 +7,7 @@ import {
   useRef,
   VDom,
   VDomType,
+  useMemo,
 } from "atomico";
 import { Plugin, unified } from "unified";
 import remarkParse from "remark-parse";
@@ -17,6 +18,8 @@ import stripIndent from "strip-indent";
 
 interface Attributes extends HTMLElement {
   src?: string;
+  remarkPlugins?: Plugin[];
+  rehypePlugins?: Plugin[];
 }
 
 const rehypeVdom: Plugin<
@@ -31,15 +34,25 @@ const rehypeVdom: Plugin<
   });
 };
 
-const remarkProcessor = unified()
-  .use(remarkParse)
-  .use(remarkRehype)
-  .use(rehypeVdom);
-
-export function RemarkMarkdownWC({ src }: Attributes) {
+export function RemarkMarkdownWC({
+  src,
+  remarkPlugins,
+  rehypePlugins,
+}: Attributes) {
   const [content, setContent] = useState<string>();
   const inlineContentRef = useRef();
   const inlineContentChildNodes = useSlot(inlineContentRef);
+
+  const remarkProcessor = useMemo(
+    () =>
+      unified()
+        .use(remarkParse)
+        .use(remarkPlugins || [])
+        .use(remarkRehype)
+        .use(rehypePlugins || [])
+        .use(rehypeVdom),
+    [remarkPlugins, rehypePlugins]
+  );
 
   useEffect(() => {
     async function run() {
@@ -68,6 +81,8 @@ export function RemarkMarkdownWC({ src }: Attributes) {
 
 RemarkMarkdownWC.props = {
   src: String,
+  remarkPlugins: Array,
+  rehypePlugins: Array,
 };
 
 customElements.define("remark-markdown", c(RemarkMarkdownWC));

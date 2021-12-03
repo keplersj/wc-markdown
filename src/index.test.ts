@@ -4,6 +4,7 @@ import { html } from "atomico";
 import { fixture } from "atomico/test-dom";
 import { findByText } from "@testing-library/dom";
 import "./index.js";
+import remarkRehype from "remark-rehype";
 
 jest.setTimeout(10000);
 
@@ -70,5 +71,41 @@ describe("Remark-Markdown Web Component", () => {
 
     expect(component).toMatchSnapshot();
     expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+  });
+
+  it("renders component and uses provided plugins", async () => {
+    const remarkPlugin = jest.fn();
+    const remarkPluginWithOptions = jest.fn();
+    const remarkPlugins = [remarkPlugin, [remarkPluginWithOptions, {}]];
+    const rehypePlugin = jest.fn();
+    const rehypePluginWithOptions = jest.fn();
+    const rehypePlugins = [rehypePlugin, [rehypePluginWithOptions, {}]];
+
+    const component = fixture(
+      html`<remark-markdown
+        remarkPlugins=${remarkPlugins}
+        rehypePlugins=${rehypePlugins}
+      >
+        <script slot="content" type="text/markdown">
+          ${`
+          # Hello world!
+
+          This is a test of inlined markdown!
+          `}
+        </script>
+      </remark-markdown>`
+    );
+
+    await findByText(component.parentElement!, "Hello world!").catch((e) => {
+      // console.error(e)
+    });
+
+    expect(component).toMatchSnapshot();
+    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+
+    expect(remarkPlugin).toBeCalledTimes(1);
+    expect(remarkPluginWithOptions).toBeCalledTimes(1);
+    expect(rehypePlugin).toBeCalledTimes(1);
+    expect(rehypePluginWithOptions).toBeCalledTimes(1);
   });
 });

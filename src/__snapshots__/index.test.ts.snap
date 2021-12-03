@@ -11,6 +11,40 @@ exports[`Remark-Markdown Web Component renders basic component 2`] = `
 </div>
 `;
 
+exports[`Remark-Markdown Web Component renders component and uses provided plugins 1`] = `
+<remark-markdown>
+  Mark {}
+  <script
+    slot="content"
+    type="text/markdown"
+  >
+    Mark {}
+    
+          # Hello world!
+
+          This is a test of inlined markdown!
+          
+    Mark {}
+  </script>
+  Mark {}
+</remark-markdown>
+`;
+
+exports[`Remark-Markdown Web Component renders component and uses provided plugins 2`] = `
+<slot name="content">
+  <script type="text/markdown">
+  </script>
+</slot>
+<div>
+  <h1>
+    Hello world!
+  </h1>
+  <p>
+    This is a test of inlined markdown!
+  </p>
+</div>
+`;
+
 exports[`Remark-Markdown Web Component renders component with \`src\` parameter 1`] = `
 <remark-markdown
   src="https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md"
