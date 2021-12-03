@@ -22,11 +22,9 @@ exports[`Remark-Markdown Web Component renders component with \`src\` parameter 
   <script type="text/markdown">
   </script>
 </slot>
-<div>
-  <h1>
-    Test
-  </h1>
-</div>
+<h1>
+  Test
+</h1>
 `;
 
 exports[`Remark-Markdown Web Component renders component with inlined Markdown 1`] = `
