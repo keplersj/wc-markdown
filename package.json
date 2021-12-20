@@ -64,7 +64,7 @@
     "@storybook/html": "6.4.9",
     "@testing-library/dom": "8.11.1",
     "@types/jest": "27.0.3",
-    "@types/jsdom": "16.2.13",
+    "@types/jsdom": "16.2.14",
     "babel-loader": "8.2.3",
     "jest": "27.4.5",
     "jest-fetch-mock": "3.0.3",
