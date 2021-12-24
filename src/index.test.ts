@@ -14,7 +14,7 @@ describe("Remark-Markdown Web Component", () => {
     await (component as any).updated;
 
     expect(component).toMatchSnapshot();
-    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+    expect(component.innerHTML).toMatchSnapshot();
   });
 
   beforeEach(() => {
@@ -33,7 +33,7 @@ describe("Remark-Markdown Web Component", () => {
     });
 
     expect(component).toMatchSnapshot();
-    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+    expect(component.innerHTML).toMatchSnapshot();
   });
 
   it("renders component with inlined Markdown", async () => {
@@ -54,7 +54,7 @@ describe("Remark-Markdown Web Component", () => {
     });
 
     expect(component).toMatchSnapshot();
-    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+    expect(component.innerHTML).toMatchSnapshot();
   });
 
   it("renders empty document if inline script does not contain content", async () => {
@@ -69,7 +69,7 @@ describe("Remark-Markdown Web Component", () => {
     });
 
     expect(component).toMatchSnapshot();
-    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+    expect(component.innerHTML).toMatchSnapshot();
   });
 
   it("renders component and uses provided plugins", async () => {
@@ -100,7 +100,7 @@ describe("Remark-Markdown Web Component", () => {
     });
 
     expect(component).toMatchSnapshot();
-    expect(component.shadowRoot?.innerHTML).toMatchSnapshot();
+    expect(component.innerHTML).toMatchSnapshot();
 
     expect(remarkPlugin).toBeCalledTimes(1);
     expect(remarkPluginWithOptions).toBeCalledTimes(1);

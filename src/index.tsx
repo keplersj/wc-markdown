@@ -69,7 +69,7 @@ export function RemarkMarkdownWC({
   }, [src, inlineContentChildNodes]);
 
   return (
-    <host shadowDom>
+    <host>
       <slot name="content" ref={inlineContentRef}>
         <script type="text/markdown"></script>
       </slot>

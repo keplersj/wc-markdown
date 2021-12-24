@@ -1,6 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Remark-Markdown Web Component renders basic component 1`] = `<remark-markdown />`;
+exports[`Remark-Markdown Web Component renders basic component 1`] = `
+<remark-markdown>
+  Mark {}
+  <slot
+    name="content"
+  >
+    Mark {}
+    <script
+      type="text/markdown"
+    >
+      Mark {}
+      Mark {}
+    </script>
+    Mark {}
+  </slot>
+  <div />
+  Mark {}
+</remark-markdown>
+`;
 
 exports[`Remark-Markdown Web Component renders basic component 2`] = `
 <slot name="content">
@@ -27,28 +45,64 @@ exports[`Remark-Markdown Web Component renders component and uses provided plugi
     Mark {}
   </script>
   Mark {}
+  Mark {}
+  <slot
+    name="content"
+  >
+    Mark {}
+    <script
+      type="text/markdown"
+    >
+      Mark {}
+      Mark {}
+    </script>
+    Mark {}
+  </slot>
+  <div />
+  Mark {}
 </remark-markdown>
 `;
 
 exports[`Remark-Markdown Web Component renders component and uses provided plugins 2`] = `
+<script slot="content"
+        type="text/markdown"
+>
+  # Hello world!
+
+          This is a test of inlined markdown!
+</script>
 <slot name="content">
   <script type="text/markdown">
   </script>
 </slot>
 <div>
-  <h1>
-    Hello world!
-  </h1>
-  <p>
-    This is a test of inlined markdown!
-  </p>
 </div>
 `;
 
 exports[`Remark-Markdown Web Component renders component with \`src\` parameter 1`] = `
 <remark-markdown
   src="https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md"
-/>
+>
+  Mark {}
+  <slot
+    name="content"
+  >
+    Mark {}
+    <script
+      type="text/markdown"
+    >
+      Mark {}
+      Mark {}
+    </script>
+    Mark {}
+  </slot>
+  <h1>
+    Mark {}
+    Test
+    Mark {}
+  </h1>
+  Mark {}
+</remark-markdown>
 `;
 
 exports[`Remark-Markdown Web Component renders component with \`src\` parameter 2`] = `
@@ -77,21 +131,37 @@ exports[`Remark-Markdown Web Component renders component with inlined Markdown 1
     Mark {}
   </script>
   Mark {}
+  Mark {}
+  <slot
+    name="content"
+  >
+    Mark {}
+    <script
+      type="text/markdown"
+    >
+      Mark {}
+      Mark {}
+    </script>
+    Mark {}
+  </slot>
+  <div />
+  Mark {}
 </remark-markdown>
 `;
 
 exports[`Remark-Markdown Web Component renders component with inlined Markdown 2`] = `
+<script slot="content"
+        type="text/markdown"
+>
+  # Hello world!
+
+          This is a test of inlined markdown!
+</script>
 <slot name="content">
   <script type="text/markdown">
   </script>
 </slot>
 <div>
-  <h1>
-    Hello world!
-  </h1>
-  <p>
-    This is a test of inlined markdown!
-  </p>
 </div>
 `;
 
@@ -103,10 +173,29 @@ exports[`Remark-Markdown Web Component renders empty document if inline script d
     type="text/markdown"
   />
   Mark {}
+  Mark {}
+  <slot
+    name="content"
+  >
+    Mark {}
+    <script
+      type="text/markdown"
+    >
+      Mark {}
+      Mark {}
+    </script>
+    Mark {}
+  </slot>
+  <div />
+  Mark {}
 </remark-markdown>
 `;
 
 exports[`Remark-Markdown Web Component renders empty document if inline script does not contain content 2`] = `
+<script slot="content"
+        type="text/markdown"
+>
+</script>
 <slot name="content">
   <script type="text/markdown">
   </script>
