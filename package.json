@@ -63,7 +63,7 @@
     "@storybook/addon-links": "6.4.9",
     "@storybook/html": "6.4.9",
     "@testing-library/dom": "8.11.1",
-    "@types/jest": "27.0.3",
+    "@types/jest": "27.4.0",
     "@types/jsdom": "16.2.14",
     "babel-loader": "8.2.3",
     "jest": "27.4.5",
