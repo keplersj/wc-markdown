@@ -33,11 +33,7 @@ const rehypeVdom: Plugin<
   });
 };
 
-export function RemarkMarkdownWC({
-  src,
-  remarkPlugins,
-  rehypePlugins,
-}: Attributes) {
+function RemarkMarkdownWC({ src, remarkPlugins, rehypePlugins }: Attributes) {
   const [content, setContent] = useState<string>();
   const inlineContentRef = useRef();
   const inlineContentChildNodes = useSlot(inlineContentRef);
