@@ -4,12 +4,10 @@
   "description": "Web Component for rendering Markdown, using Remark",
   "type": "module",
   "source": "src/index.tsx",
-  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "unpkg": "./dist/index.umd.js",
   "exports": {
     "import": "./dist/index.js",
-    "require": "./dist/index.cjs",
     "default": "./dist/index.js"
   },
   "scripts": {
