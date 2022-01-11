@@ -1,5 +1,9 @@
 # webcomponent-markdown
 
+[![npm](https://img.shields.io/npm/v/webcomponent-markdown)](https://www.npmjs.com/package/webcomponent-markdown)
+[![npm](https://img.shields.io/npm/dw/webcomponent-markdown)](https://www.npmjs.com/package/webcomponent-markdown)
+[![Codecov](https://img.shields.io/codecov/c/github/keplersj/wc-markdown)](https://app.codecov.io/gh/keplersj/wc-markdown)
+
 [Web Component](https://www.webcomponents.org/) for [Markdown](https://commonmark.org/help/) using [Remark](https://unifiedjs.com/explore/project/remarkjs/remark/).
 
 ## Beta and Experimental Software
