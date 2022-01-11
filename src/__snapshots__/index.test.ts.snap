@@ -3,35 +3,21 @@
 exports[`Remark-Markdown Web Component renders basic component 1`] = `
 <remark-markdown>
   Mark {}
-  <slot
-    name="content"
-  >
-    Mark {}
-    <script
-      type="text/markdown"
-    >
-      Mark {}
-      Mark {}
-    </script>
-    Mark {}
-  </slot>
   <div />
   Mark {}
 </remark-markdown>
 `;
 
 exports[`Remark-Markdown Web Component renders basic component 2`] = `
-<slot name="content">
-  <script type="text/markdown">
-  </script>
-</slot>
 <div>
 </div>
 `;
 
 exports[`Remark-Markdown Web Component renders component and uses provided plugins 1`] = `
 <remark-markdown>
-  Mark {}
+  Mark {
+    Symbol(): true,
+  }
   <script
     slot="content"
     type="text/markdown"
@@ -44,21 +30,26 @@ exports[`Remark-Markdown Web Component renders component and uses provided plugi
           
     Mark {}
   </script>
+  Mark {
+    Symbol(): true,
+  }
   Mark {}
-  Mark {}
-  <slot
-    name="content"
-  >
+  <div>
     Mark {}
-    <script
-      type="text/markdown"
-    >
+    <h1>
       Mark {}
+      Hello world!
       Mark {}
-    </script>
+    </h1>
+    
+
+    <p>
+      Mark {}
+      This is a test of inlined markdown!
+      Mark {}
+    </p>
     Mark {}
-  </slot>
-  <div />
+  </div>
   Mark {}
 </remark-markdown>
 `;
@@ -71,11 +62,13 @@ exports[`Remark-Markdown Web Component renders component and uses provided plugi
 
           This is a test of inlined markdown!
 </script>
-<slot name="content">
-  <script type="text/markdown">
-  </script>
-</slot>
 <div>
+  <h1>
+    Hello world!
+  </h1>
+  <p>
+    This is a test of inlined markdown!
+  </p>
 </div>
 `;
 
@@ -84,18 +77,6 @@ exports[`Remark-Markdown Web Component renders component with \`src\` parameter 
   src="https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md"
 >
   Mark {}
-  <slot
-    name="content"
-  >
-    Mark {}
-    <script
-      type="text/markdown"
-    >
-      Mark {}
-      Mark {}
-    </script>
-    Mark {}
-  </slot>
   <h1>
     Mark {}
     Test
@@ -106,10 +87,6 @@ exports[`Remark-Markdown Web Component renders component with \`src\` parameter 
 `;
 
 exports[`Remark-Markdown Web Component renders component with \`src\` parameter 2`] = `
-<slot name="content">
-  <script type="text/markdown">
-  </script>
-</slot>
 <h1>
   Test
 </h1>
@@ -117,7 +94,9 @@ exports[`Remark-Markdown Web Component renders component with \`src\` parameter 
 
 exports[`Remark-Markdown Web Component renders component with inlined Markdown 1`] = `
 <remark-markdown>
-  Mark {}
+  Mark {
+    Symbol(): true,
+  }
   <script
     slot="content"
     type="text/markdown"
@@ -130,21 +109,26 @@ exports[`Remark-Markdown Web Component renders component with inlined Markdown 1
           
     Mark {}
   </script>
+  Mark {
+    Symbol(): true,
+  }
   Mark {}
-  Mark {}
-  <slot
-    name="content"
-  >
+  <div>
     Mark {}
-    <script
-      type="text/markdown"
-    >
+    <h1>
       Mark {}
+      Hello world!
       Mark {}
-    </script>
+    </h1>
+    
+
+    <p>
+      Mark {}
+      This is a test of inlined markdown!
+      Mark {}
+    </p>
     Mark {}
-  </slot>
-  <div />
+  </div>
   Mark {}
 </remark-markdown>
 `;
@@ -157,35 +141,29 @@ exports[`Remark-Markdown Web Component renders component with inlined Markdown 2
 
           This is a test of inlined markdown!
 </script>
-<slot name="content">
-  <script type="text/markdown">
-  </script>
-</slot>
 <div>
+  <h1>
+    Hello world!
+  </h1>
+  <p>
+    This is a test of inlined markdown!
+  </p>
 </div>
 `;
 
 exports[`Remark-Markdown Web Component renders empty document if inline script does not contain content 1`] = `
 <remark-markdown>
-  Mark {}
+  Mark {
+    Symbol(): true,
+  }
   <script
     slot="content"
     type="text/markdown"
   />
+  Mark {
+    Symbol(): true,
+  }
   Mark {}
-  Mark {}
-  <slot
-    name="content"
-  >
-    Mark {}
-    <script
-      type="text/markdown"
-    >
-      Mark {}
-      Mark {}
-    </script>
-    Mark {}
-  </slot>
   <div />
   Mark {}
 </remark-markdown>
@@ -196,10 +174,6 @@ exports[`Remark-Markdown Web Component renders empty document if inline script d
         type="text/markdown"
 >
 </script>
-<slot name="content">
-  <script type="text/markdown">
-  </script>
-</slot>
 <div>
 </div>
 `;

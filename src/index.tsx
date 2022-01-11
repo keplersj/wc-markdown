@@ -12,7 +12,7 @@ import { Plugin, unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { Root, toH } from "hast-to-hyperscript";
-import { useSlot } from "@atomico/hooks/use-slot";
+import { useChildNodes } from "@atomico/hooks/use-child-nodes";
 import stripIndent from "strip-indent";
 
 interface Attributes extends HTMLElement {
@@ -35,8 +35,7 @@ const rehypeVdom: Plugin<
 
 function RemarkMarkdownWC({ src, remarkPlugins, rehypePlugins }: Attributes) {
   const [content, setContent] = useState<string>();
-  const inlineContentRef = useRef();
-  const inlineContentChildNodes = useSlot(inlineContentRef);
+  const [inlineContentChildNodes] = useChildNodes();
 
   const remarkProcessor = useMemo(
     () =>
@@ -52,9 +51,14 @@ function RemarkMarkdownWC({ src, remarkPlugins, rehypePlugins }: Attributes) {
   useEffect(() => {
     async function run() {
       if (inlineContentChildNodes && inlineContentChildNodes.length !== 0) {
-        const contentNode = inlineContentChildNodes[0];
+        const contentNode = inlineContentChildNodes.filter(
+          (node) =>
+            (node as HTMLScriptElement).localName === "script" &&
+            (node as HTMLScriptElement).type === "text/markdown" &&
+            (node as HTMLSelectElement).slot === "content"
+        )[0];
 
-        setContent(stripIndent(contentNode.textContent || ""));
+        setContent(stripIndent(contentNode?.textContent || ""));
       } else if (src) {
         const fetchedContent = await fetch(src);
         setContent(await fetchedContent.text());
@@ -64,14 +68,7 @@ function RemarkMarkdownWC({ src, remarkPlugins, rehypePlugins }: Attributes) {
     run();
   }, [src, inlineContentChildNodes]);
 
-  return (
-    <host>
-      <slot name="content" ref={inlineContentRef}>
-        <script type="text/markdown"></script>
-      </slot>
-      {remarkProcessor.processSync(content).result}
-    </host>
-  );
+  return <host>{remarkProcessor.processSync(content).result}</host>;
 }
 
 RemarkMarkdownWC.props = {

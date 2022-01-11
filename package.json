@@ -46,7 +46,7 @@
     },
     "moduleNameMapper": {
       "^(\\.{1,2}/.*)\\.js$": "$1",
-      "@atomico/hooks/use-slot": "<rootDir>/node_modules/@atomico/hooks/src/use-slot/use-slot.js"
+      "@atomico/hooks/(.*)": "<rootDir>/node_modules/@atomico/hooks/src/$1/$1.js"
     },
     "testEnvironment": "jsdom",
     "collectCoverage": true,
@@ -83,8 +83,8 @@
     "vite": "2.7.10"
   },
   "dependencies": {
-    "@atomico/hooks": "^3.20.2",
-    "atomico": "^1.34.0",
+    "@atomico/hooks": "^3.26.2",
+    "atomico": "^1.37.1",
     "hast-to-hyperscript": "^10.0.1",
     "remark-parse": "^10.0.0",
     "remark-rehype": "^10.0.1",
