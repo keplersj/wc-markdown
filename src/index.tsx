@@ -84,4 +84,6 @@ RemarkMarkdownWC.props = {
   rehypePlugins: Array,
 };
 
-customElements.define("remark-markdown", c(RemarkMarkdownWC));
+export const RemarkMarkdown = c(RemarkMarkdownWC);
+
+customElements.define("remark-markdown", RemarkMarkdown);
