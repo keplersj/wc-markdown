@@ -6,17 +6,20 @@
   "source": "src/index.tsx",
   "module": "./dist/webcomponent-markdown.js",
   "unpkg": "./dist/webcomponent-markdown.umd.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "import": "./dist/webcomponent-markdown.js",
     "default": "./dist/webcomponent-markdown.js"
   },
   "scripts": {
+    "clean": "rimraf coverage/ dist/ storybook-static/",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "build": "microbundle",
+    "build": "npm run clean && microbundle",
     "dev": "microbundle watch",
     "prepack": "npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook",
+    "storybook:serve": "serve storybook-static"
   },
   "repository": {
     "type": "git",
@@ -74,6 +77,8 @@
     "jest-serializer-html": "7.1.0",
     "microbundle": "^0.14.2",
     "node-fetch": "3.1.0",
+    "rimraf": "^3.0.2",
+    "serve": "^13.0.2",
     "storybook-builder-vite": "0.1.13",
     "ts-jest": "27.1.2",
     "ts-node": "10.4.0",
