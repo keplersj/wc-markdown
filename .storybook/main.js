@@ -5,6 +5,11 @@ module.exports = {
     builder: "storybook-builder-vite",
   },
   async viteFinal(config, { configType }) {
+    // customize the Vite config here
+    config.esbuild = config.esbuild || {};
+    config.esbuild.jsxFactory = "_jsx";
+    config.esbuild.jsxInject = "import {h as _jsx, css as _css} from 'atomico'";
+
     // return the customized config
     return config;
   },
