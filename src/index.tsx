@@ -1,43 +1,21 @@
-import { c, h, useEffect, useState, VDom, VDomType, useMemo } from "atomico";
-import { Plugin, unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import { Root, toH } from "hast-to-hyperscript";
+import { c, useEffect } from "atomico";
+import { Plugin } from "unified";
+import { useRemark } from "atomico-use-remark";
 import { useChildNodes } from "@atomico/hooks/use-child-nodes";
 import stripIndent from "strip-indent";
 
-interface Attributes extends HTMLElement {
+interface Attributes {
   src?: string;
   remarkPlugins?: Plugin[];
   rehypePlugins?: Plugin[];
 }
 
-const rehypeVdom: Plugin<
-  any[],
-  Root,
-  VDom<VDomType, unknown, unknown>
-> = function () {
-  Object.assign(this, {
-    Compiler: (tree: Root) => {
-      return toH(h, tree);
-    },
-  });
-};
-
 function RemarkMarkdownWC({ src, remarkPlugins, rehypePlugins }: Attributes) {
-  const [content, setContent] = useState<string>();
+  const [tree, setContent] = useRemark("", {
+    remarkPlugins,
+    rehypePlugins,
+  });
   const [inlineContentChildNodes] = useChildNodes();
-
-  const remarkProcessor = useMemo(
-    () =>
-      unified()
-        .use(remarkParse)
-        .use(remarkPlugins || [])
-        .use(remarkRehype)
-        .use(rehypePlugins || [])
-        .use(rehypeVdom),
-    [remarkPlugins, rehypePlugins]
-  );
 
   useEffect(() => {
     async function run() {
@@ -59,7 +37,7 @@ function RemarkMarkdownWC({ src, remarkPlugins, rehypePlugins }: Attributes) {
     run();
   }, [src, inlineContentChildNodes]);
 
-  return <host>{remarkProcessor.processSync(content).result}</host>;
+  return <host>{tree}</host>;
 }
 
 RemarkMarkdownWC.props = {

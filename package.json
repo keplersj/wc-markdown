@@ -86,12 +86,9 @@
     "vite": "2.8.2"
   },
   "dependencies": {
-    "@atomico/hooks": "^3.26.2",
-    "atomico": "^1.37.1",
-    "hast-to-hyperscript": "^10.0.1",
-    "remark-parse": "^10.0.0",
-    "remark-rehype": "^10.0.1",
-    "strip-indent": "^4.0.0",
-    "unified": "^10.1.0"
+    "@atomico/hooks": "^3.29.0",
+    "atomico": "^1.45.1",
+    "atomico-use-remark": "^1.0.0",
+    "strip-indent": "^4.0.0"
   }
 }
