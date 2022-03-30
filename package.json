@@ -83,7 +83,7 @@
     "ts-jest": "27.1.4",
     "ts-node": "10.7.0",
     "typescript": "4.6.3",
-    "vite": "2.8.6"
+    "vite": "2.9.0"
   },
   "dependencies": {
     "@atomico/hooks": "^3.29.0",
