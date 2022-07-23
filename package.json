@@ -70,7 +70,7 @@
     "@storybook/html": "6.5.9",
     "@testing-library/dom": "8.16.0",
     "@types/jest": "27.5.2",
-    "@types/jsdom": "16.2.15",
+    "@types/jsdom": "20.0.0",
     "babel-loader": "8.2.5",
     "jest": "27.5.1",
     "jest-fetch-mock": "3.0.3",
