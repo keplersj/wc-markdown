@@ -68,7 +68,7 @@
     "@storybook/addon-essentials": "6.5.10",
     "@storybook/addon-links": "6.5.10",
     "@storybook/html": "6.5.10",
-    "@testing-library/dom": "8.16.1",
+    "@testing-library/dom": "8.17.1",
     "@types/jest": "27.5.2",
     "@types/jsdom": "20.0.0",
     "babel-loader": "8.2.5",
