@@ -71,7 +71,7 @@
     "@testing-library/dom": "8.19.0",
     "@types/jest": "27.5.2",
     "@types/jsdom": "20.0.0",
-    "babel-loader": "9.0.1",
+    "babel-loader": "9.1.0",
     "jest": "27.5.1",
     "jest-fetch-mock": "3.0.3",
     "jest-serializer-html": "7.1.0",
