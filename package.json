@@ -76,7 +76,7 @@
     "jest-fetch-mock": "3.0.3",
     "jest-serializer-html": "7.1.0",
     "microbundle": "0.15.1",
-    "node-fetch": "3.3.1",
+    "node-fetch": "3.3.2",
     "rimraf": "5.0.1",
     "serve": "14.2.0",
     "storybook-builder-vite": "0.1.23",
