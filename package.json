@@ -78,7 +78,7 @@
     "microbundle": "0.15.1",
     "node-fetch": "3.3.2",
     "rimraf": "5.0.5",
-    "serve": "14.2.2",
+    "serve": "14.2.3",
     "storybook-builder-vite": "0.1.23",
     "ts-jest": "27.1.5",
     "ts-node": "10.9.2",
