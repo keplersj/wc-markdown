@@ -73,7 +73,7 @@
     "@types/jsdom": "28.0.3",
     "babel-loader": "10.1.1",
     "jest": "27.5.1",
-    "jest-fetch-mock": "4.0.0",
+    "jest-fetch-mock": "4.1.0",
     "jest-serializer-html": "7.1.0",
     "microbundle": "0.15.1",
     "node-fetch": "3.3.2",
