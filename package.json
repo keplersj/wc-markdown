@@ -87,7 +87,7 @@
   },
   "dependencies": {
     "@atomico/hooks": "^3.29.0",
-    "atomico": "^1.45.1",
+    "atomico": "^2.0.0",
     "atomico-use-remark": "^1.0.0",
     "strip-indent": "^4.0.0"
   }
